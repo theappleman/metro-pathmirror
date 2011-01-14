@@ -49,3 +49,19 @@ Currently there are only 4 mirrors you can use:
 	ftp://ftp.nluug.nl/pub/metalab/distributions/funtoo/
 
 
+Install
+====
+Install metro as you normally would:
+	# emerge metro
+or clone the repo and do symlinks.
+
+For an install with very little configuration editing, we'll use the default
+mirror path:
+
+	# test -d /home/mirror || mkdir -p /home/mirror
+	# cd /home/mirror
+	# git clone git://github.com/theappleman/metro-pathmirror.git linux
+
+	# cd linux
+	# ./get funtoo x86
+	# ./get funtoo amd64
