@@ -1,0 +1,51 @@
+metro - path/mirror
+=======
+
+This is a skeleton path/mirror directory for use with metro, funtoo's
+automated distribution build tool.
+
+Included here are the /.control/ files that guide the building process
+for each supported arch (bits in parenthesis are bits):
+x86 and ~x86 (32)
+i686 and ~i686 (32)
+amd64 and ~amd64 (64)
+core2 and ~core2 (64)
+opteron and ~opteron (64)
+~athlon-xp (32)
+~core2_32 (32)
+~opteron_32 (32)
+~pentium4 (32)
+
+If you have an amd64-compatible CPU, you can use metro to create amd64 and
+x86 stages, and their deriviatives.
+
+If you have an 32-bit x86 CPU, you are only able to create x86 and derived
+stages.
+
+An 64-bit seed stage cannot create a 32-bit stage.
+
+Most 32-bit stages require the i686 (or its derivative) stages as a seed.
+This is reflected in the control files with the caveat: you must either create
+or download an i686 seed stage before commencing the build for derived targets.
+
+get
+===
+To run get, you must pass the distribution and arch for it to download.
+The distributions are: funtoo, ~funtoo or gentoo.
+
+./get funtoo x86
+
+
+By default, it fetches the stage from heanet mirrors (Republic of Ireland);
+you can change this by giving the base url of the mirror to use as a third
+argument:
+
+./get ~funtoo core2 http://distro.ibiblio.org/pub/linux/distributions/funtoo/
+
+Currently there are only 4 mirrors you can use:
+	http://distro.ibiblio.org/pub/linux/distributions/funtoo/
+	http://ftp.osuosl.org/pub/funtoo/
+	http://ftp.heanet.ie/pub/funtoo/
+	ftp://ftp.nluug.nl/pub/metalab/distributions/funtoo/
+
+
