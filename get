@@ -3,14 +3,18 @@
 build=${1:?Need build (funtoo, ~funtoo or gentoo)}
 arch=${2:?Need arch (e.g. amd64, x86)}
 host=${3-http://ftp.heanet.ie/pub/funtoo/}
+
 pushd .
 
-cd $(dirname $0)
+cd $(dirname "$0")
 
-mkdir $build/$arch/$build-$arch-current
-wget -O $build/$arch/$build-$arch-current/stage3-$arch-current.tar.xz \
-	$host/$build/$arch/stage3-$arch-current.tar.xz
+test -d "$build/$arch/$build-$arch-current" || \
+	mkdir "$build/$arch/$build-$arch-current"
+wget -O "$build/$arch/$build-$arch-current/stage3-$arch-current.tar.xz" \
+	"$host/$build/$arch/stage3-$arch-current.tar.xz"
 
-echo current > $build/$arch/.control/version/stage3
+test -d "$build/$arch/.control/version" || \
+	mkdir -p "$build/$arch/.control/version"
+echo "current" > "$build/$arch/.control/version/stage3"
 
 popd
