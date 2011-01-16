@@ -11,4 +11,6 @@ mkdir $build/$arch/$build-$arch-current
 wget -O $build/$arch/$build-$arch-current/stage3-$arch-current.tar.xz \
 	$host/$build/$arch/stage3-$arch-current.tar.xz
 
+echo current > $build/$arch/.control/version/stage3
+
 popd
